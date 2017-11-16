@@ -16,7 +16,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        //initialize onload
+        updateAnswer()
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,6 +26,7 @@ class ViewController: UIViewController {
     }
     
     
+    //handing button click
     @IBAction func answerAction(_ sender: UIButton) {
         updateAnswer();
     }
@@ -33,6 +35,11 @@ class ViewController: UIViewController {
         randomImage = Int(arc4random_uniform(5))
         print("random number: \(imageArray[randomImage])")
         imageBall.image = UIImage(named: imageArray[randomImage])
+    }
+    
+    //handing shake genture end
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        updateAnswer();
     }
     
 }
